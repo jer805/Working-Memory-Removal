@@ -551,9 +551,5 @@ def run_experiment():
     save_and_quit(f)
    
 clock, font_obj = initialize_pygame()
-filename, f = get_pid(pid_request)                                     #get PID and make sure it isn't already taken
+filename, f = get_pid(pid_request)                    
 run_experiment()
-
-#pyinstaller.exe --onefile main.py
-# cd documents/python
-# py -3 main.py
