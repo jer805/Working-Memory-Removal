@@ -31,12 +31,12 @@ WIN_WIDTH, WIN_HEIGHT = pygame.display.Info().current_w, \
 confg = configparser.ConfigParser()
 confg.read('confg_digits.cfg')
 
-#setting the value for color variables
+# These set the value for color variables.
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-#variables which might be useful to adjust:
+# These are variables which might be useful to adjust.
 BLOCKS = int(confg.get('var', 'blocks'))
 PRACTICE_BLOCKS = int(confg.get('var', 'practice_blocks'))
 UPDATES = int(confg.get('var', 'updates'))
@@ -46,13 +46,13 @@ RECT_SIDE_DIVISOR = int(confg.get('var', 'rect_side_divisor'))
 RECT_SIDE = WIN_HEIGHT/RECT_SIDE_DIVISOR
 FONT_SIZE = int(confg.get('var', 'font_size'))
 
-#creating the lists which store testing results:
+# This block creates the lists which store testing results:
 accuracies = [[] for block in range(BLOCKS)]
 test_rts = [[] for block in range(BLOCKS)]
 stimuli = [[] for block in range(BLOCKS)]
 responses = [[] for block in range(BLOCKS)]
 
-#messages that will be displayed to participant
+# These are messages that will be displayed to the participant.
 pid_request = confg.get('message', 'pid_request')
 instructions = confg.get('message', 'instructions')
 instructions2 = confg.get('message', 'instructions2pt1') +" "+ \
@@ -73,7 +73,6 @@ DIGIT_POSITIONS = [(FIRST_RECT[0]-RECT_SIDE, FIRST_RECT[1]+.5*RECT_SIDE),
     (WIN_WIDTH/2,WIN_HEIGHT/2),
     (FIRST_RECT[0]+2*RECT_SIDE, FIRST_RECT[1]+.5*RECT_SIDE)]
 
-#generates the starting digits with some specifications
 def get_start_digits():
     """
     This function generates three random starting digit stimuli which will be 
@@ -537,6 +536,3 @@ def run_experiment():
 clock, font_obj = initialize_pygame()
 filename, f = get_pid(pid_request)
 run_experiment()
-#pyinstaller.exe --onefile main.py
-# cd documents/python
-# py -3 main.py
